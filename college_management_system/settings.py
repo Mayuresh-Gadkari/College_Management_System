@@ -26,7 +26,7 @@ SECRET_KEY = '%56k(-fbwqkcu5x3@e#^2t376+v_8x8k)7mdx*2gbzcg%#v=8*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["collegemanagementsystem2609.herokuapp.com"]
+ALLOWED_HOSTS = []
 
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     #===Enable Only Making Project Live on Heroku==
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -84,14 +84,14 @@ WSGI_APPLICATION = 'college_management_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'ENGINE':'django.db.backends.mysql',
-        # 'NAME':'college_management_system',
-        # 'USER':'college_management_system',
-        # 'PASSWORD':'college_management_password',
-        # 'HOST':'localhost',
-        # 'PORT':'3306'
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'college_management_system',
+        'USER':'college_management_system',
+        'PASSWORD':'college_management_password',
+        'HOST':'localhost',
+        'PORT':'3306'
     }
 }
 
@@ -140,7 +140,7 @@ EMAIL_BACKEND="django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH=os.path.join(BASE_DIR,"sent_mails")
 
 #Enable Only Making Project Live on Heroku
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
-import dj_database_url
-prod_db=dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+# STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+# import dj_database_url
+# prod_db=dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(prod_db)
